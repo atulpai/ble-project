@@ -23,6 +23,7 @@ noble.on('discover', function(peripheral) {
 	//var localname = 'joe';
   var localName = peripheral.advertisement.localName; 
 	if (localName != null) {
+	console.log('time stamp: ' + Date.now());
 console.log('localname: ' + localName + ' rssi: ' + rss + ' estimated dist: ' + calculateDistance(rss));
 }
   //console.log('found device: ', macAdress, ' ', localName, ' ', rss);   
