@@ -31,7 +31,7 @@ console.log('localname: ' + localName + ' rssi: ' + rss + ' estimated dist: ' + 
 
 function calculateDistance(rssi) {
   
-  var txPower = -61; //hard coded power value. Usually ranges between -59 to -65
+  var txPower = -59; //hard coded power value. Usually ranges between -59 to -65
   
   if (rssi == 0) {
     return -1.0; 

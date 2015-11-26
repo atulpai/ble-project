@@ -1,0 +1,201 @@
+started scanning
+time stamp: 1448498371611
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498372142
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498372690
+localname: Adafruit Bluefruit LE rssi: -92 estimated dist: 27.752738449875483
+time stamp: 1448498373249
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498373800
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498374350
+localname: Adafruit Bluefruit LE rssi: -87 estimated dist: 18.07763630020772
+time stamp: 1448498374899
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498375994
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498376545
+localname: Adafruit Bluefruit LE rssi: -88 estimated dist: 19.732502466971397
+time stamp: 1448498378191
+localname: Adafruit Bluefruit LE rssi: -88 estimated dist: 19.732502466971397
+time stamp: 1448498378739
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498379837
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498380395
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498380944
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498381493
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498383146
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498384799
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498385903
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498386452
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498387011
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498387554
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498388105
+localname: Adafruit Bluefruit LE rssi: -94 estimated dist: 32.73763509472836
+time stamp: 1448498388656
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498389207
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498390307
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498390859
+localname: Adafruit Bluefruit LE rssi: -92 estimated dist: 27.752738449875483
+time stamp: 1448498391421
+localname: Adafruit Bluefruit LE rssi: -95 estimated dist: 35.510997662790324
+time stamp: 1448498391958
+localname: Adafruit Bluefruit LE rssi: -88 estimated dist: 19.732502466971397
+time stamp: 1448498393069
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498394726
+localname: Adafruit Bluefruit LE rssi: -88 estimated dist: 19.732502466971397
+time stamp: 1448498395831
+localname: Adafruit Bluefruit LE rssi: -93 estimated dist: 30.155320780411284
+time stamp: 1448498396933
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498397481
+localname: Adafruit Bluefruit LE rssi: -92 estimated dist: 27.752738449875483
+time stamp: 1448498398588
+localname: Adafruit Bluefruit LE rssi: -88 estimated dist: 19.732502466971397
+time stamp: 1448498399689
+localname: Adafruit Bluefruit LE rssi: -92 estimated dist: 27.752738449875483
+time stamp: 1448498400247
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498401892
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498403005
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498403550
+localname: Adafruit Bluefruit LE rssi: -87 estimated dist: 18.07763630020772
+time stamp: 1448498404101
+localname: Adafruit Bluefruit LE rssi: -95 estimated dist: 35.510997662790324
+time stamp: 1448498404652
+localname: Adafruit Bluefruit LE rssi: -92 estimated dist: 27.752738449875483
+time stamp: 1448498406309
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498407403
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498407959
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498408513
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498409067
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498410170
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498410717
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498411818
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498412368
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498413468
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498414019
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498415124
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498416779
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498417873
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498418421
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498418971
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498420065
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498421172
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498421720
+localname: Adafruit Bluefruit LE rssi: -88 estimated dist: 19.732502466971397
+time stamp: 1448498422269
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498422838
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498423375
+localname: Adafruit Bluefruit LE rssi: -88 estimated dist: 19.732502466971397
+time stamp: 1448498425017
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498426122
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498426694
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498427257
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498427788
+localname: Adafruit Bluefruit LE rssi: -93 estimated dist: 30.155320780411284
+time stamp: 1448498428336
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498428904
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498429999
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498430547
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498431643
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498432190
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498433290
+localname: Adafruit Bluefruit LE rssi: -93 estimated dist: 30.155320780411284
+time stamp: 1448498433848
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498434945
+localname: Adafruit Bluefruit LE rssi: -86 estimated dist: 16.545591294123085
+time stamp: 1448498435497
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498437145
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498437696
+localname: Adafruit Bluefruit LE rssi: -93 estimated dist: 30.155320780411284
+time stamp: 1448498438245
+localname: Adafruit Bluefruit LE rssi: -88 estimated dist: 19.732502466971397
+time stamp: 1448498438797
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498439894
+localname: Adafruit Bluefruit LE rssi: -86 estimated dist: 16.545591294123085
+time stamp: 1448498440446
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498441558
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498442105
+localname: Adafruit Bluefruit LE rssi: -93 estimated dist: 30.155320780411284
+time stamp: 1448498442655
+localname: Adafruit Bluefruit LE rssi: -87 estimated dist: 18.07763630020772
+time stamp: 1448498443208
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498444308
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498445413
+localname: Adafruit Bluefruit LE rssi: -88 estimated dist: 19.732502466971397
+time stamp: 1448498445967
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498447068
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498447620
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498448171
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498448718
+localname: Adafruit Bluefruit LE rssi: -91 estimated dist: 25.519130565680634
+time stamp: 1448498449267
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498450363
+localname: Adafruit Bluefruit LE rssi: -89 estimated dist: 21.51847051877174
+time stamp: 1448498450911
+localname: Adafruit Bluefruit LE rssi: -90 estimated dist: 23.44427636162588
+time stamp: 1448498452557
+localname: Adafruit Bluefruit LE rssi: -88 estimated dist: 19.732502466971397
+time stamp: 1448498453669
+localname: Adafruit Bluefruit LE rssi: -93 estimated dist: 30.155320780411284
