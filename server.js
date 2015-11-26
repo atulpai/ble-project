@@ -9,9 +9,7 @@ app.get('/', function(req, res){
 var sock;
 io.on('connection', function(socket){
   sock = socket;
-  // setInterval(function(){
-  //     socket.emit('chat message', 'Cow goes moo'); 
-  // }, 1000);
+
 });
 
 http.listen(3000, function(){
@@ -42,8 +40,8 @@ noble.on('discover', function(peripheral) {
 	if (localName != null) {
   	console.log('time stamp: ' + Date.now());
     console.log('localname: ' + localName + ' rssi: ' + rss + ' estimated dist: ' + calculateDistance(rss));
-    if (socket != null) {
-      socket.emit('chat message', {'time': Date.now(), 'rss': rss, 'dist': calculateDistance(rss)});
+    if (sock != null) {
+      sock.emit('chat message', {'time': Date.now(), 'rss': rss, 'dist': calculateDistance(rss)});
     }
   }
   //console.log('found device: ', macAdress, ' ', localName, ' ', rss);   
