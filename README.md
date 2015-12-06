@@ -20,7 +20,7 @@ The project is also serve as the purpose of CSE 461 Fianl Project.
 
 ## Log
 #### Acient time ago
-- Our idea is inspired by [here]()
+- Our idea is inspired by [here](https://medium.com/truth-labs/beacon-tracking-with-node-js-and-raspberry-pi-794afa880318#.ada0wu7pv)
 #### Early Nov. 
 - Installed all the dependencies on Raspberry Pi
 - Bought Inateck bluetooth receiver
@@ -42,14 +42,19 @@ The project is also serve as the purpose of CSE 461 Fianl Project.
 
 - Bought a 5inch hdmi 800x480 portable monitor
 #### Beginning of December
-- .
+- Implemented the Kalman Filter
+- Implemented the running average
+- Performed the INDOOR experiment on mapping the rssi to distance -> Both on the ground (receiver and transmitter) and hold them in the air
 
+- Found that Kalman Filter has less variance than running average
+- Found that the signal of ble is inconsistence after 33 inches (both on the ground and in the air, which convinced us)
 ## Potential ideas that we can explore
 1. Increase the number of receivers to gain more data in order to average out the noise. Instead of using the data driven approch, we can use a time period driven approach such as data pushing period is 0.5s. 
 2. Increase the number of transmitters to gain more data in order to average out the noise.
-3. We can use a kalman filter or running average to reduce the noise
+3. ~~We can use a kalman filter or running average to reduce the noise~~
 4. Map rssi to distance using the field experiment result we gained from practice. (Rewrite the rssi - distance function)
-5. We can use a EM algorithm to clustering and figure out the confidence (efficiency problem)
+    - Found a log distance equation [here](https://wouterbulten.nl/blog/tech/kalman-filters-explained-removing-noise-from-rssi-signals/) converting rssi to distance, which is a discrete function, but as the combination of Kalman Filter, the result can be continuous.
+5. We can use a EM algorithm to clustering and figure out the confidence (efficiency problem) using the data points we have already generated before as reference clusters.
 
 
 
