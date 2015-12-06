@@ -3,9 +3,9 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var KalmanFilter = require('kalmanjs').default;
-var kf = new KalmanFilter({R:0.01, Q:5});
+var kf = new KalmanFilter({R:0.1, Q:6});
 var lastTime = 0;
-var timeInterval = 5 * 1000; // 5 seconds minutes 
+var timeInterval = 5 * 10 * 1000; // 5 seconds minutes 
  
 var MA = require('moving-average');
 var ma = MA(timeInterval);
@@ -50,7 +50,7 @@ noble.on('discover', function(peripheral) {
 	if (localName != null && now - lastTime > 100) {
     lastTime = now;
     index++;
-  	console.log('time stamp: ' + now + 'index: ' + index);
+  	console.log('time stamp: ' + now + ' index: ' + index);
     console.log('localname: ' + localName + ' rssi: ' + rss + ' estimated dist: ' + calculateDistance(rss));
     ma.push(now, rss);
     console.log('kal :' + kf.filter(rss));

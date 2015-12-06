@@ -3,7 +3,7 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var KalmanFilter = require('kalmanjs').default;
-var kf = new KalmanFilter({R:0.01, Q:5});
+var kf = new KalmanFilter({R:0.01, Q:4});
 var lastTime = 0;
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/view.html');
@@ -43,8 +43,8 @@ noble.on('discover', function(peripheral) {
 	if (localName != null && now - lastTime > 100) {
     lastTime = now;
   	console.log('time stamp: ' + now);
-    console.log('name: ' + localName + ' rss: ' + rss + 'dist: ' + calculateDistance(rss));    
-    console.log('kal :' + ks.filter(rss));
+    console.log('name: ' + localName + ' rssi: ' + rss + ' dist: ' + calculateDistance(rss));    
+    console.log('kal :' + kf.filter(rss));
     //if (sock != null && localName.indexOf('Adafruit') > -1) {
       //sock.emit('chat message', {'time': Date.now(), 'rss': rss, 'dist': calculateDistance(rss), 'kal': kf.filter(rss)});
     //}
