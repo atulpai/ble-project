@@ -53,7 +53,7 @@ noble.on('discover', function(peripheral) {
   	console.log('time stamp: ' + now + 'index: ' + index);
     console.log('localname: ' + localName + ' rssi: ' + rss + ' estimated dist: ' + calculateDistance(rss));
     ma.push(now, rss);
-    console.log('kal :' + ks.filter(rss));
+    console.log('kal :' + kf.filter(rss));
     console.log('ma :' + ma.movingAverage());
     if (sock != null && localName.indexOf('Adafruit') > -1) {
       sock.emit('chat message', {'time': Date.now(), 'rss': rss, 'dist': calculateDistance(rss), 'kal': kf.filter(rss)});
