@@ -51,12 +51,12 @@ noble.on('discover', function(peripheral) {
     lastTime = now;
     index++;
   	console.log('time stamp: ' + now + ' index: ' + index);
-    console.log('localname: ' + localName + ' rssi: ' + rss + ' estimated log distance equation: ' + calculateDistanceLogFunction(rss));
+    console.log('localname: ' + localName + ' rssi: ' + rss + ' estimated log distance equation: ' + polyBestFit(rss));
     ma.push(now, rss);
     console.log('kal :' + kf.filter(rss));
     console.log('ma :' + ma.movingAverage());
     if (sock != null && localName.indexOf('Adafruit') > -1) {
-      sock.emit('chat message', {'time': Date.now(), 'rss': rss, 'dist': calculateDistanceLogFunction(rss), 'kal': kf.filter(rss)});
+      sock.emit('chat message', {'time': Date.now(), 'rss': rss, 'dist': polyBestFit(rss), 'kal': kf.filter(rss)});
     }
   }
   //console.log('found device: ', macAdress, ' ', localName, ' ', rss);   
@@ -103,4 +103,11 @@ function calculateDistanceLogFunction(rssi) {
     var distance =  (0.89976)*Math.pow(ratio,7.7095) + 0.111;    
     return distance;
   }*/
+}
+
+
+function polyBestFit (x) {
+   return  30.854656974102966
+        +  1.5537710131758378 * Math.pow(x,1)
+        +  0.020558836892321734* Math.pow(x,2);
 }
