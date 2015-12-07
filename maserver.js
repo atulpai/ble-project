@@ -79,3 +79,28 @@ function calculateDistance(rssi) {
     return distance;
   }
 }
+
+// calculate rssi using this function: RSSI=−10nlog10(d/d0)+A0
+//d describes the distance between the transceiver and recipient, 
+// n the signal propagation exponent for indoor = 2
+// A0 a referenced RSSI value at d0. (-59)
+// Usually d0 is 11 inches
+function calculateDistanceLogFunction(rssi) {
+  if (rssi == 0) {
+    return -1.0; 
+  }
+
+  var a0 = -59; 
+
+  //(10 ^ (RSSI - AO / -10n)) * 11 = d 
+
+  return (11) * Math.pow(10, (rssi - a0 / -20));
+  /*var ratio = rssi*1.0/txPower;
+  if (ratio < 1.0) {
+    return Math.pow(ratio,10);
+  }
+  else {
+    var distance =  (0.89976)*Math.pow(ratio,7.7095) + 0.111;    
+    return distance;
+  }*/
+}
