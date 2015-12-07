@@ -47,7 +47,9 @@ noble.on('discover', function(peripheral) {
 	//var localname = 'joe';
   var localName = peripheral.advertisement.localName;
   var now = Date.now();
-	if (localName != null && now - lastTime > 100) {
+	if (localname != null && localname.indexOf("B7E9") > 0){
+    kf.filter(rss);
+  } else if (localName != null && now - lastTime > 100) {
     lastTime = now;
     index++;
   	console.log('time stamp: ' + now + ' index: ' + index);
