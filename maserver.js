@@ -47,16 +47,19 @@ noble.on('discover', function(peripheral) {
 	//var localname = 'joe';
   var localName = peripheral.advertisement.localName;
   var now = Date.now();
-	if (localName != null && now - lastTime > 100) {
+	if (localName != null && localName.indexOf("B7E9") > 0){
+    kf.filter(rss);
+  } else if (localName != null && now - lastTime > 100) {
     lastTime = now;
     index++;
+	var kfrssi = kf.filter(rss);
   	console.log('time stamp: ' + now + ' index: ' + index);
-    console.log('localname: ' + localName + ' rssi: ' + rss + ' estimated dist: ' + calculateDistance(rss));
+    console.log('localname: ' + localName + ' rssi: ' + rss + ' estimated log distance equation: ' + polyBestFit(kfrssi));
     ma.push(now, rss);
-    console.log('kal :' + kf.filter(rss));
+    console.log('kal :' + kfrssi);
     console.log('ma :' + ma.movingAverage());
     if (sock != null && localName.indexOf('Adafruit') > -1) {
-      sock.emit('chat message', {'time': Date.now(), 'rss': rss, 'dist': calculateDistance(rss), 'kal': kf.filter(rss)});
+      sock.emit('chat message', {'time': Date.now(), 'rss': rss, 'dist': polyBestFit(rss), 'kal': kfrssi});
     }
   }
   //console.log('found device: ', macAdress, ' ', localName, ' ', rss);   
@@ -78,4 +81,36 @@ function calculateDistance(rssi) {
     var distance =  (0.89976)*Math.pow(ratio,7.7095) + 0.111;    
     return distance;
   }
+}
+
+// calculate rssi using this function: RSSI=−10nlog10(d/d0)+A0
+//d describes the distance between the transceiver and recipient, 
+// n the signal propagation exponent for indoor = 2
+// A0 a referenced RSSI value at d0. (-59)
+// Usually d0 is 11 inches
+function calculateDistanceLogFunction(rssi) {
+  if (rssi == 0) {
+    return -1.0; 
+  }
+
+  var a0 = -59; 
+
+  //(10 ^ (RSSI - AO / -10n)) * 11 = d 
+
+  return (11) * Math.pow(10, (rssi - a0 / -20));
+  /*var ratio = rssi*1.0/txPower;
+  if (ratio < 1.0) {
+    return Math.pow(ratio,10);
+  }
+  else {
+    var distance =  (0.89976)*Math.pow(ratio,7.7095) + 0.111;    
+    return distance;
+  }*/
+}
+
+
+function polyBestFit (x) {
+   return  30.854656974102966
+        +  1.5537710131758378 * Math.pow(x,1)
+        +  0.020558836892321734* Math.pow(x,2);
 }
