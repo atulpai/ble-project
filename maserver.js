@@ -59,7 +59,7 @@ noble.on('discover', function(peripheral) {
     console.log('kal :' + kfrssi);
     console.log('ma :' + ma.movingAverage());
     if (sock != null && localName.indexOf('Adafruit') > -1) {
-      sock.emit('chat message', {'time': Date.now(), 'rss': rss, 'dist': polyBestFit(rss), 'kal': kfrssi});
+      sock.emit('chat message', {'time': Date.now(), 'rss': rss, 'dist': polyBestFit(kfrssi), 'kal': kfrssi});
     }
   }
   //console.log('found device: ', macAdress, ' ', localName, ' ', rss);   

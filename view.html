@@ -1,66 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- EXTERNAL LIBS-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://www.google.com/jsapi"></script>
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-    <!-- EXAMPLE SCRIPT -->
-    <script>
-    //window.onload = function () {
-      var socket = io();
-      
+    <head>
+        <!-- EXTERNAL LIBS-->
+        <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 
-      // onload callback
-      function drawChart() {
-        
-      var data = new google.visualization.DataTable();
+        <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/easing/EasePack.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
+        <!-- EXAMPLE SCRIPT -->
+        <script>
+$(document).ready(function() {
+    console.log("things loggein");
+    var socket = io.connect();
+    //socket.connect("http://localhost:3000");
+    var linearScale = d3.scale.linear()
+        .domain([0, 48])
+        .range([0, 48]);   
 
-      data.addColumn('number', 'Time');
-      data.addColumn('number', 'rsi');
-      data.addColumn('number', 'column');
+    //  var svgContainer = d3.select("body").append("svg")
+    //                                      .attr("width", 200)
+    //                                      .attr("height", 200);
+     
+    //  //Draw the Circle
+    //  var circle = svgContainer.append("circle")
+    //                           .attr("cx", 30)
+    //                           .attr("cy", 30)
+    //                          .attr("r", 20);
 
-        // data.addRows([
-        //   [0, 11, 13],
-        //   [1, 21, 18],
-        //   [2, 1, 14],
-        //   [3, 15, 11],
-        //   [4, 12, 16]
-        // ]);
-        var chart = new google.visualization.LineChart($('#chart').get(0));
 
-      socket.on('chat message', function(msg){
-        console.log(msg);
-        data.addRow([msg.time, msg.rss, msg.dist]);
-        $('#messages').append($('<li>').text(msg.time + ' ' + msg.rss + ' ' + msg.dist));
-        chart.draw(data, {
-          title: 'DA'
+    // var circleGroup = svgContainer.selectAll('circle');
+    // circleGroup.attr("r", 10000);
+    // circleGroup.select('circle').setAttribute('cx', 100); 
+    // circleGroup.select('circle').cy = 100;
+    //circle.setAttribute('r' ,1000) ;                            
+    //circle.*/
+
+    var svgnode = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    var circle = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    circle.setAttribute("cx", "10");
+    circle.setAttribute("cy", "10");
+    circle.setAttribute("r", "10");
+    circle.setAttribute("fill", "blue");
+    var ani = document.createElementNS("http://www.w3.org/2000/svg","animateTransform");
+    ani.setAttribute("attributeName", "transform");
+    ani.setAttribute("attributeType", "xml");
+    ani.setAttribute("type", "translate" );
+    ani.setAttribute("from", "10");
+    ani.setAttribute("to", "100");
+    ani.setAttribute("begin", "0s");
+    ani.setAttribute("dur", "1s");
+    ani.setAttribute("fill", "freeze");
+    circle.appendChild(ani);
+    svgnode.appendChild(circle);
+    // document.getElement('body').appendChild(svgnode);
+    $('body').append(svgnode);
+
+
+    socket.on('connect', function(msg) {
+        console.log('connected to server');
+    });
+
+    socket.on('chat message', function(msg) {
+        console.log("got a rssi value " + msg.dist);
+
+        // var yVal = filter(linearScale(msg.accuracy));
+        TweenLite.to(linearScale, .5, {
+            cy: msg.dist,
+            ease: 'easeOutExpo'
         });
-      });
 
-        chart.draw(data, {
-          title: 'DA',
-          curveType: 'function'
-        });
-      }
+    });
+     //Make an SVG Container
 
-      // load chart lib
-      google.load('visualization', '1', {
-        packages: ['corechart']
-      });
+});
+        </script>
 
-      // call drawChart once google charts is loaded
-      google.setOnLoadCallback(drawChart);
-  //}
+    </head>
+    <body>
 
-    </script>
+        <div id="chart" style="width: 100%; height: 100%"></div>
+        <ul id="messages"></ul>
 
-  </head>
-  <body>
-
-    <div id="chart" style="width: 100%; height: 500px"></div>
-          <ul id="messages"></ul>
-
-  </body>
+    </body>
 </html>
