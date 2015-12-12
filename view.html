@@ -39,11 +39,11 @@
       // onload callback
       function drawChart() {
         
-      var data = new google.visualization.DataTable();
+      // var data = new google.visualization.DataTable();
 
-      data.addColumn('number', 'Time');
-      data.addColumn('number', 'rsi');
-      data.addColumn('number', 'column');
+      // data.addColumn('number', 'Time');
+      // data.addColumn('number', 'rsi');
+      // data.addColumn('number', 'column');
 
         // data.addRows([
         //   [0, 11, 13],
@@ -52,15 +52,14 @@
         //   [3, 15, 11],
         //   [4, 12, 16]
         // ]);
-      var chart = new google.visualization.LineChart($('#chart').get(0));
+      //var chart = new google.visualization.LineChart($('#chart').get(0));
       socket.on('chat message', function(msg){
         console.log(msg);
-        data.addRow([msg.time, msg.rss, msg.dist]);
-        $('#messages').append($('<li>').text(msg.time + ' ' + msg.rss + ' ' + msg.dist));
-        chart.draw(data, {
-            title: 'DA'
-          });
-        console.log("Weird draw");
+        //data.addRow([msg.time, msg.rss, msg.dist]);
+        $('#messages').append($('<li>').text(msg.time + ' ' + msg.rss + ' ' + msg.dist + ' ' + msg.kfrssi));
+        // chart.draw(data, {
+        //     title: 'DA'
+        //   });
 
         var context= myCanvas.getContext('2d');
         context.clearRect(0,0, 1000,100);
@@ -68,10 +67,10 @@
         context.fillStyle="#0000ff";
         // Draws a circle of radius 20 at the coordinates 100,100 on the canvas
         //context.arc(12.5*-msg.rss-58,50,10,0,Math.PI*2,true);
-        console.log(msg.rss); 
-        console.log(12.5*(-parseInt(msg.rss)-58));
-        console.log("drawing at" + 12.5*(-parseInt(msg.rss)-58));
-        context.arc(12.5*(-parseInt(msg.rss)-58),50,10,0,Math.PI*2,true);
+        console.log(msg.kfrssi); 
+        console.log(12.5*(-parseInt(msg.kfrssi)-58));
+        console.log("drawing at" + 12.5*(-parseInt(msg.kfrssi)-58));
+        context.arc(12.5*Math.abs(parseInt(msg.kfrssi)),50,10,0,Math.PI*2,true);
 
         context.closePath();
         context.fill();
@@ -83,10 +82,10 @@
 
         });
 
-        chart.draw(data, {
-          title: 'DA',
-          curveType: 'function'
-        });
+        // chart.draw(data, {
+        //   title: 'DA',
+        //   curveType: 'function'
+        // });
 
         
 
@@ -96,12 +95,12 @@
 
 
       // load chart lib
-      google.load('visualization', '1', {
-        packages: ['corechart']
-      });
+      // google.load('visualization', '1', {
+      //   packages: ['corechart']
+      // });
 
       // call drawChart once google charts is loaded
-      google.setOnLoadCallback(drawChart);
+      //google.setOnLoadCallback(drawChart);
   //}
 
 
