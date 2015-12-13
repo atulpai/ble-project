@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- EXTERNAL LIBS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <!-- EXAMPLE SCRIPT -->
+    <script>
+    //window.onload = function () {
+      var socket = io();
+
+      var context;
+      var x = 50;
+      function init()
+      {
+        context= myCanvas.getContext('2d');
+        //setInterval(draw,20);
+      }
+
+      function draw()
+      {
+        context.clearRect(0,0, 1000,100);
+        context.beginPath();
+        context.fillStyle="#0000ff";
+        // Draws a circle of radius 20 at the coordinates 100,100 on the canvas
+        context.arc(x,50,10,0,Math.PI*2,true);
+        context.closePath();
+        context.fill();
+
+        x = 8*Math.abs(kal);
+        console.log("original draw kal is :"  + kal + " X is : " + x);
+      }
+
+      // onload callback
+      function drawChart() {
+
+      socket.on('chat message', function(msg){
+        console.log(msg);
+        // $('#messages').append($('<li>').text(msg.time + ' ' + msg.rss + ' ' + msg.dist));
+        console.log("Weird draw");
+
+        var context= myCanvas.getContext('2d');
+        context.clearRect(0,0, 1000,100);
+        context.beginPath();
+        context.fillStyle="#0000ff";
+        console.log(msg.kal); 
+        console.log(12.5*(-parseInt(msg.kal)-58));
+        console.log("drawing at" + 12.5*(-parseInt(msg.kal)-58));
+        context.arc(12.5*(-parseInt(msg.kal)-58),50,10,0,Math.PI*2,true);
+
+        context.closePath();
+        context.fill();
+
+        context.beginPath();
+        context.moveTo(0,50);
+        context.lineTo(1000,50);
+        context.stroke();
+
+        });
+      }
+
+    drawChart();
+    </script>
+
+  </head>
+  <body onLoad="init();">
+
+    <canvas id="myCanvas" width="1000" height="100" >
+  </canvas>
+    <div id="chart" style="width: 100%; height: 500px"></div>
+          <ul id="messages"></ul>
+
+  </body>
+</html>
