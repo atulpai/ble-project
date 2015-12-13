@@ -55,13 +55,42 @@ The project is also serve as the purpose of CSE 461 Fianl Project.
 - Found that Kalman Filter has less variance than running average
 - Found that the signal of ble is inconsistence after 33 inches (both on the ground and in the air, which convinced us)
 
+#### Dec. 08
+- Implemented the GUI to display the ble signal in a line. 
+
+- GUI has limited functionality but serves our purpose very well
+- Found that two transmitters with the same model will have different reading at the same different according the nobel reading. 
+- Fixed transmitter to be the one with the lowest variance (at 11 feet, reading is -59, at 22 feet, reading will decrese)
+
+#### Dec. 11
+- Field experiment in CSE conference room 303
+- Found that NOTHING worked
+- Conference room has a lot of interferences. Reading will change depending on whether the transmitters are near projector or not
+
+- Same model of receivers will have different readings as well..
+- Nothing worked even we performed the experiment at the CSE Lab 003, due to the change of transmitters and receivers
+
+- Nothing worked = Reading is not changing even with different distance between transmitter and receiver
+
+#### Dec. 12
+- Performed the experiment again in CSE Lab 003, with Raspberry Pi
+- Raspberry Pi is still not working properly 
+
+- Performed the experiment again in CSE Lab 003, with Macbook with Virtual Machine (Linux) and one model of receiver as the one using on Raspi
+- The experiment is successful and can plot the graph in ./module/view1DLine.html
+- Filmed the experiment and stored in ./video/
+
+- Still having no idea why working on Macbook VM instead of Raspi
+- Categorized everything into folders, deleted unwanted files and cleaned the code to have better style and comments
+
 ## Potential ideas that we can explore
 1. Increase the number of receivers to gain more data in order to average out or Kalman Filter the noise. Instead of using the data driven approch, we can use a time period driven approach such as data pushing period is 0.5s. 
-2. Increase the number of transmitters to gain more data in order to average out the noise.
+2. ~~Increase the number of transmitters to gain more data in order to average out the noise.~~ (same model of transmitters will have a different signal strength according to the receiver side reading, which is super disappointing)
 3. ~~We can use a kalman filter or running average to reduce the noise~~ (already implemented)
-4. Map rssi to distance using the field experiment result we gained from practice. (Rewrite the rssi - distance function)
-    - Found a log distance equation [here](https://wouterbulten.nl/blog/tech/kalman-filters-explained-removing-noise-from-rssi-signals/) converting rssi to distance, which is a discrete function, but as the combination of Kalman Filter, the result can be continuous.
+4. ~~Map rssi to distance using the field experiment result we gained from practice. (Rewrite the rssi - distance function)~~ (implemented)
+    ~~- Found a log distance equation [here](https://wouterbulten.nl/blog/tech/kalman-filters-explained-removing-noise-from-rssi-signals/) converting rssi to distance, which is a discrete function, but as the combination of Kalman Filter, the result can be continuous.~~ (Does not work)
 5. We can use a EM algorithm to clustering and figure out the confidence (efficiency problem) using the data points we have already generated before as reference clusters.
+6. Making the view1DLine.html smooth, meaning the blue dot should continuously moving instead of discrete.
 
 
 
