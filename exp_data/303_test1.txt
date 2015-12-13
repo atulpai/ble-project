@@ -1,0 +1,17 @@
+listening on *:3000
+started scanning
+time stamp: 1449884061649 index: 1
+localname: Adafruit Bluefruit LE rssi: -66 estimated log distance equation: 17.86006360745114
+kal :-66
+time stamp: 1449884062202 index: 2
+localname: Adafruit Bluefruit LE rssi: -80 estimated log distance equation: 27.07124175104539
+kal :-73.05785123966942
+time stamp: 1449884062754 index: 3
+localname: Adafruit Bluefruit LE rssi: -71 estimated log distance equation: 26.0594784789986
+kal :-72.35313830268997
+time stamp: 1449884063304 index: 4
+localname: Adafruit Bluefruit LE rssi: -84 estimated log distance equation: 30.6278964636888
+kal :-75.43057062667086
+time stamp: 1449884064410 index: 5
+localname: Adafruit Bluefruit LE rssi: -66 estimated log distance equation: 27.514928279706766
+kal :-73.36248458926453
