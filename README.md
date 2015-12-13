@@ -90,7 +90,7 @@ The project is also serve as the purpose of CSE 461 Fianl Project.
 - If we ran one instance with option `NOBLE_REPORT_ALL_HCI_EVENTS=1`, the base reading will be started with -68, which is not exactly what we do not want.
 - Detailed screen recording about context-switching behavior described can be found under ./media/Three-Receivers-Not-Working.mov
 
-- We are wondering if this behavior is caused by the bandwidth of USB 2.0, the false implementation of noble or the fact that everything is running on a Virtual Machine
+- We are wondering if this behavior is caused by the bandwidth of USB 2.0, the false implementation of noble or ~~the fact that everything is running on a Virtual Machine~~
 
 - Behavior observed with same configuration on Raspi as well
 - Additionally, at the same distance, three receivers have three significantly different readings (-59, -66, -72)
