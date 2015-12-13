@@ -1,17 +1,19 @@
+
+// The centralized bluetooth control system
+// that is implemented in JavaScript
 var noble = require('noble');
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+// Used an default kalman filter
 var KalmanFilter = require('kalmanjs').default;
+// The R value and Q value are chosen by field experiment
 var kf = new KalmanFilter({R:0.1, Q:6});
+
 var lastTime = 0;
-var timeInterval = 5 * 10 * 1000; // 5 seconds minutes 
- 
-var MA = require('moving-average');
-var ma = MA(timeInterval);
 
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/view.html');
+  res.sendFile(__dirname + '/view1DLine.html');
 });
 var index = 0;
 var sock;
@@ -20,11 +22,13 @@ io.on('connection', function(socket){
 
 });
 
-
 http.listen(3000, function(){
   console.log('listening on *:3000');
 });
 
+/*
+ * Fire up noble
+ */
 noble.on('stateChange', function(state) {
   if (state === 'poweredOn') {
 	console.log('started scanning');
@@ -40,75 +44,47 @@ noble.on('stateChange', function(state) {
   }
 });
 
+/*
+ * If noble discovered something
+ */
 noble.on('discover', function(peripheral) { 
-	//console.log(peripheral);
-  //var macAddress = peripheral.uuid;
   var rss = peripheral.rssi;
-	//var localname = 'joe';
   var localName = peripheral.advertisement.localName;
   var now = Date.now();
-	if (localName != null && localName.indexOf("B7E9") > 0){
-    kf.filter(rss);
-  } else if (localName != null && now - lastTime > 100) {
+  if (    localName != null && 
+          localName.indexOf("Adafruit") >= 0 &&  // lock our device
+          now - lastTime > 100) {   // We have this weird issue that will have two readings
+                                    // that are extremely similar but different signal 
+                                    // strength. This might be the result of bluetooth
+                                    // Multipath
     lastTime = now;
     index++;
 	var kfrssi = kf.filter(rss);
-  	console.log('time stamp: ' + now + ' index: ' + index);
-    console.log('localname: ' + localName + ' rssi: ' + rss + ' estimated log distance equation: ' + polyBestFit(kfrssi));
-    ma.push(now, rss);
-    console.log('kal :' + kfrssi);
-    console.log('ma :' + ma.movingAverage());
+    console.log('\n');
+  	console.log('Time Stamp: ' + now + ', Index: ' + index);
+    console.log('Device Name: ' + localName);
+    console.log('\tRSSI: ' + rss);
+    console.log('\tKalman Filter :' + kfrssi);
+    console.log('\tEst. Distance by Kalman: ' + polyBestFit(kfrssi));
     if (sock != null && localName.indexOf('Adafruit') > -1) {
-      sock.emit('chat message', {'time': Date.now(), 'rss': rss, 'dist': polyBestFit(rss), 'kal': kfrssi});
+      sock.emit('chat message', {
+          'time': Date.now(), 'rss': rss, 'dist': polyBestFit(rss), 'kal': kfrssi
+      });
     }
   }
-  //console.log('found device: ', macAdress, ' ', localName, ' ', rss);   
 });
 
-function calculateDistance(rssi) {
-  
-  var txPower = -61; //hard coded power value. Usually ranges between -59 to -65
-  
-  if (rssi == 0) {
-    return -1.0; 
-  }
-
-  var ratio = rssi*1.0/txPower;
-  if (ratio < 1.0) {
-    return Math.pow(ratio,10);
-  }
-  else {
-    var distance =  (0.89976)*Math.pow(ratio,7.7095) + 0.111;    
-    return distance;
-  }
-}
-
-// calculate rssi using this function: RSSI=−10nlog10(d/d0)+A0
-//d describes the distance between the transceiver and recipient, 
-// n the signal propagation exponent for indoor = 2
-// A0 a referenced RSSI value at d0. (-59)
-// Usually d0 is 11 inches
-function calculateDistanceLogFunction(rssi) {
-  if (rssi == 0) {
-    return -1.0; 
-  }
-
-  var a0 = -59; 
-
-  //(10 ^ (RSSI - AO / -10n)) * 11 = d 
-
-  return (11) * Math.pow(10, (rssi - a0 / -20));
-  /*var ratio = rssi*1.0/txPower;
-  if (ratio < 1.0) {
-    return Math.pow(ratio,10);
-  }
-  else {
-    var distance =  (0.89976)*Math.pow(ratio,7.7095) + 0.111;    
-    return distance;
-  }*/
-}
-
-
+/*
+ * This is the best fit line by the data we gathered
+ * from the field experiment done in the CSE Lab 003
+ * We have tried other function such as a log equation
+ * convert bluetooth rssi to distance, and an hard
+ * coded bluetooth distance equation by internet
+ * conventional knowledge. However, those methods
+ * described above do not fit the needs of our usage
+ * The field experiment shows that our bestfit line
+ * works the best comparing to all three
+ */
 function polyBestFit (x) {
    return  30.854656974102966
         +  1.5537710131758378 * Math.pow(x,1)

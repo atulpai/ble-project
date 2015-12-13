@@ -10,7 +10,6 @@
     <script>
     //window.onload = function () {
       var socket = io();
-      var rss = -60;
 
       var context;
       var x = 50;
@@ -30,46 +29,26 @@
         context.closePath();
         context.fill();
 
-        x = 8*Math.abs(rss);
-        console.log("original draw rss is :"  + rss + " X is : " + x);
+        x = 8*Math.abs(kal);
+        console.log("original draw kal is :"  + kal + " X is : " + x);
       }
 
       // onload callback
       function drawChart() {
-        
-      // var data = new google.visualization.DataTable();
 
-      // data.addColumn('number', 'Time');
-      // data.addColumn('number', 'rsi');
-      // data.addColumn('number', 'column');
-
-        // data.addRows([
-        //   [0, 11, 13],
-        //   [1, 21, 18],
-        //   [2, 1, 14],
-        //   [3, 15, 11],
-        //   [4, 12, 16]
-        // ]);
-      //var chart = new google.visualization.LineChart($('#chart').get(0));
       socket.on('chat message', function(msg){
         console.log(msg);
-        //data.addRow([msg.time, msg.rss, msg.dist]);
-        $('#messages').append($('<li>').text(msg.time + ' ' + msg.rss + ' ' + msg.dist));
-        // chart.draw(data, {
-        //     title: 'DA'
-        //   });
+        // $('#messages').append($('<li>').text(msg.time + ' ' + msg.rss + ' ' + msg.dist));
         console.log("Weird draw");
 
         var context= myCanvas.getContext('2d');
         context.clearRect(0,0, 1000,100);
         context.beginPath();
         context.fillStyle="#0000ff";
-        // Draws a circle of radius 20 at the coordinates 100,100 on the canvas
-        //context.arc(12.5*-msg.rss-58,50,10,0,Math.PI*2,true);
-        console.log(msg.rss); 
-        console.log(12.5*(-parseInt(msg.rss)-58));
-        console.log("drawing at" + 12.5*(-parseInt(msg.rss)-58));
-        context.arc(12.5*(-parseInt(msg.rss)-58),50,10,0,Math.PI*2,true);
+        console.log(msg.kal); 
+        console.log(12.5*(-parseInt(msg.kal)-58));
+        console.log("drawing at" + 12.5*(-parseInt(msg.kal)-58));
+        context.arc(12.5*(-parseInt(msg.kal)-58),50,10,0,Math.PI*2,true);
 
         context.closePath();
         context.fill();
@@ -80,30 +59,9 @@
         context.stroke();
 
         });
-
-        // chart.draw(data, {
-        //   title: 'DA',
-        //   curveType: 'function'
-        // });
-
-        
-
       }
 
-
-
-
-      // load chart lib
-      // google.load('visualization', '1', {
-      //   packages: ['corechart']
-      // });
-
-      // // call drawChart once google charts is loaded
-      // google.setOnLoadCallback(drawChart);
-  //}
     drawChart();
-
-
     </script>
 
   </head>
