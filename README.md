@@ -24,6 +24,7 @@ The project is also serve as the purpose of CSE 461 Fianl Project.
 ## Log
 #### Acient time ago
 - Our idea is inspired by [here](https://medium.com/truth-labs/beacon-tracking-with-node-js-and-raspberry-pi-794afa880318#.ada0wu7pv)
+
 #### Early Nov. 
 - Installed all the dependencies on Raspberry Pi
 - Bought Inateck bluetooth receiver
@@ -78,17 +79,25 @@ The project is also serve as the purpose of CSE 461 Fianl Project.
 
 - Performed the experiment again in CSE Lab 003, with Macbook with Virtual Machine (Linux) and one model of receiver as the one using on Raspi
 - The experiment is successful and can plot the graph in ./module/view1DLine.html
-- Filmed the experiment and stored in ./video/
+- Filmed the experiment and stored in ./media/Experiment-Working.mp4
 
 - Still having no idea why working on Macbook VM instead of Raspi
 - Categorized everything into folders, deleted unwanted files and cleaned the code to have better style and comments
 
+#### Dec. 12  - 2
+- Performed the experiment in CSE Lab 003 tried to increase the number of receivers to gain data. Setting can be viewed [here] (https://github.com/atulpai/ble-project/media/Three-Receivers-Not-Working.jpg)
+- Experiment failed with strange behavior. If we ran three instances of the same program with different HCI interface specified (followed the instruction by noble), we will get a context-switching-like behavior for the readings. 
+- If we ran one instance with option `NOBLE_REPORT_ALL_HCI_EVENTS=1`, the base reading will be started with -68, which is not exactly what we do not want.
+- Detailed screen recording about context-switching behavior described can be found under ./media/Three-Receivers-Not-Working.mov
+
+- We are wondering if this behavior is caused by the bandwidth of USB 2.0, the false implementation of noble or the fact that everything is running on a Virtual Machine
+
 ## Potential ideas that we can explore
-1. Increase the number of receivers to gain more data in order to average out or Kalman Filter the noise. Instead of using the data driven approch, we can use a time period driven approach such as data pushing period is 0.5s. 
+1. ~~Increase the number of receivers to gain more data in order to average out or Kalman Filter the noise. Instead of using the data driven approch, we can use a time period driven approach such as data pushing period is 0.5s.~~ (Experimented, not working, context-switching behavior) 
 2. ~~Increase the number of transmitters to gain more data in order to average out the noise.~~ (same model of transmitters will have a different signal strength according to the receiver side reading, which is super disappointing)
 3. ~~We can use a kalman filter or running average to reduce the noise~~ (already implemented)
 4. ~~Map rssi to distance using the field experiment result we gained from practice. (Rewrite the rssi - distance function)~~ (implemented)
-    ~~- Found a log distance equation [here](https://wouterbulten.nl/blog/tech/kalman-filters-explained-removing-noise-from-rssi-signals/) converting rssi to distance, which is a discrete function, but as the combination of Kalman Filter, the result can be continuous.~~ (Does not work)
+    - ~~Found a log distance equation [here](https://wouterbulten.nl/blog/tech/kalman-filters-explained-removing-noise-from-rssi-signals/) converting rssi to distance, which is a discrete function, but as the combination of Kalman Filter, the result can be continuous.~~ (Does not work)
 5. We can use a EM algorithm to clustering and figure out the confidence (efficiency problem) using the data points we have already generated before as reference clusters.
 6. Making the view1DLine.html smooth, meaning the blue dot should continuously moving instead of discrete.
 
