@@ -92,8 +92,11 @@ The project is also serve as the purpose of CSE 461 Fianl Project.
 
 - We are wondering if this behavior is caused by the bandwidth of USB 2.0, the false implementation of noble or the fact that everything is running on a Virtual Machine
 
+- Behavior observed with same configuration on Raspi as well
+- Additionally, at the same distance, three receivers have three significantly different readings (-59, -66, -72)
+
 ## Potential ideas that we can explore
-1. ~~Increase the number of receivers to gain more data in order to average out or Kalman Filter the noise. Instead of using the data driven approch, we can use a time period driven approach such as data pushing period is 0.5s.~~ (Experimented, not working, context-switching behavior) 
+1. ~~Increase the number of receivers to gain more data in order to average out or Kalman Filter the noise. Instead of using the data driven approch, we can use a time period driven approach such as data pushing period is 0.5s.~~ (Experimented, not working, context-switching behavior, receivers have different readings at the same distance) 
 2. ~~Increase the number of transmitters to gain more data in order to average out the noise.~~ (same model of transmitters will have a different signal strength according to the receiver side reading, which is super disappointing)
 3. ~~We can use a kalman filter or running average to reduce the noise~~ (already implemented)
 4. ~~Map rssi to distance using the field experiment result we gained from practice. (Rewrite the rssi - distance function)~~ (implemented)
