@@ -42,6 +42,8 @@
         console.log("Weird draw");
 
         var context= myCanvas.getContext('2d');
+        context.font = "15px Arial";
+
         context.clearRect(0,0, 1000,200);
         context.beginPath();
         context.fillStyle="#0000ff";
@@ -49,6 +51,8 @@
         console.log(12.5*(-parseInt(msg.kal)-58));
         console.log("drawing at" + 12.5*(-parseInt(msg.kal)-58));
         context.arc(12.5*(-parseInt(msg.kal)-58),50,10,0,Math.PI*2,true);
+        context.strokeText(msg.kal,12.5*(-parseInt(msg.kal)-58),35);
+
 
         context.closePath();
         context.fill();
@@ -65,6 +69,7 @@
         console.log(20*(parseInt(msg.dist)));
         console.log("dist drawing at" + 20*(parseInt(msg.dist)));
         context.arc(20*(parseInt(msg.dist)),150,10,0,Math.PI*2,true);
+        context.strokeText(msg.dist,20*(parseInt(msg.dist),135);
 
         context.closePath();
         context.fill();
