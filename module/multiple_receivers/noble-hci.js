@@ -49,7 +49,7 @@ noble.on('discover', function(peripheral) {
   	console.log('Index: ' + index);
     console.log('Device Name: ' + localName);
     console.log('\tRSSI: ' + rss);
-    // console.log('\tKalman Filter :' + kfrssi);
+    console.log('\tKalman Filter :' + kfrssi);
     // console.log('\tEst. Distance by Kalman: ' + polyBestFit(kfrssi));
     
   }

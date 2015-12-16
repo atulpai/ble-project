@@ -22,8 +22,6 @@ The project is also serve as the purpose of CSE 461 Fianl Project.
 `npm install noble express socket.io kalmanjs moving-average`
 
 ## Log
-#### Acient time ago
-- Our idea is inspired by [here](https://medium.com/truth-labs/beacon-tracking-with-node-js-and-raspberry-pi-794afa880318#.ada0wu7pv)
 
 #### Early Nov. 
 - Installed all the dependencies on Raspberry Pi
