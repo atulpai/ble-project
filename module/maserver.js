@@ -68,7 +68,7 @@ noble.on('discover', function(peripheral) {
     console.log('\tEst. Distance by Kalman: ' + polyBestFit(kfrssi));
     if (sock != null && localName.indexOf('Adafruit') > -1) {
       sock.emit('chat message', {
-          'time': Date.now(), 'rss': rss, 'dist': polyBestFit(rss), 'kal': kfrssi
+          'time': Date.now(), 'rss': rss, 'dist': polyBestFit(kfrssi), 'kal': kfrssi
       });
     }
   }
