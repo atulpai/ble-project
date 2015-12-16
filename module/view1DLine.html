@@ -21,7 +21,7 @@
 
       function draw()
       {
-        context.clearRect(0,0, 1000,100);
+        context.clearRect(0,0, 1000,200);
         context.beginPath();
         context.fillStyle="#0000ff";
         // Draws a circle of radius 20 at the coordinates 100,100 on the canvas
@@ -42,7 +42,7 @@
         console.log("Weird draw");
 
         var context= myCanvas.getContext('2d');
-        context.clearRect(0,0, 1000,100);
+        context.clearRect(0,0, 1000,200);
         context.beginPath();
         context.fillStyle="#0000ff";
         console.log(msg.kal); 
@@ -58,6 +58,22 @@
         context.lineTo(1000,50);
         context.stroke();
 
+        
+        context.beginPath();
+        context.fillStyle="#00ff00";
+        console.log(msg.dist); 
+        console.log(20*(parseInt(msg.dist)));
+        console.log("dist drawing at" + 20*(parseInt(msg.dist)));
+        context.arc(20*(parseInt(msg.dist)),150,10,0,Math.PI*2,true);
+
+        context.closePath();
+        context.fill();
+
+        context.beginPath();
+        context.moveTo(0,150);
+        context.lineTo(1000,150);
+        context.stroke();
+
         });
       }
 
@@ -67,7 +83,7 @@
   </head>
   <body onLoad="init();">
 
-    <canvas id="myCanvas" width="1000" height="100" >
+    <canvas id="myCanvas" width="1000" height="200" >
   </canvas>
     <div id="chart" style="width: 100%; height: 500px"></div>
           <ul id="messages"></ul>
